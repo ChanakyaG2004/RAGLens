@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply min-w-[320px] bg-slate-950 text-slate-100 antialiased;
+  }
+  button,
+  input {
+    font: inherit;
+  }
+  ::selection {
+    @apply bg-cyan-400/30 text-white;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply rounded-2xl border border-slate-800 bg-slate-900/60 shadow-2xl shadow-slate-950/30;
+  }
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.18em] text-cyan-400;
+  }
+  .action-primary {
+    @apply rounded-lg bg-cyan-400 px-4 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .action-secondary {
+    @apply rounded-lg border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm font-medium text-slate-200 transition hover:border-slate-600 hover:bg-slate-800;
+  }
+}

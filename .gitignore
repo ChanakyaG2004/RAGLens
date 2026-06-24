@@ -1,0 +1,10 @@
+.DS_Store
+.env
+backend/.env
+backend/.venv/
+__pycache__/
+*.py[cod]
+frontend/node_modules/
+frontend/dist/
+raglens-*.md
+raglens-*.pdf

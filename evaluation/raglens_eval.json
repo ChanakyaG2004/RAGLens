@@ -1,0 +1,14 @@
+[
+  {
+    "question": "What is the main goal of RAGLens?",
+    "expected_document": "raglens-demo.md"
+  },
+  {
+    "question": "What information does a persisted RAG trace capture?",
+    "expected_document": "raglens-demo.md"
+  },
+  {
+    "question": "Where are document vectors stored in RAGLens?",
+    "expected_document": "raglens-demo.md"
+  }
+]

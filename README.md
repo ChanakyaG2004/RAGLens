@@ -6,9 +6,9 @@ The project is intentionally built as an inspectable developer tool rather than 
 
 ## Demo video
 
-<video src="docs/demo/raglens-demo.mp4" controls width="100%"></video>
+![RAGLens demo preview](docs/demo/raglens-demo-preview.gif)
 
-[Download or view the demo video](docs/demo/raglens-demo.mp4)
+[Download or view the full MP4 demo](docs/demo/raglens-demo.mp4)
 
 Recommended walkthrough:
 

@@ -4,12 +4,28 @@ RAGLens helps developers understand, debug, and improve retrieval-augmented gene
 
 The project is intentionally built as an inspectable developer tool rather than a generic document chatbot. Every normal question creates a persisted RAG trace, and evaluation runs make retrieval quality, citation behavior, latency, and failure cases visible across multiple questions.
 
-It's intention is to help developers answer four questions about RAG systems:
+## Demo video
 
-What information did the system retrieve?
-What context and prompt were sent to the language model
-What answer did the model generate, and which sources support it?
-How well did the system perform across multiple test questions?
+<video src="docs/demo/raglens-demo.mp4" controls width="100%"></video>
+
+[Download or view the demo video](docs/demo/raglens-demo.mp4)
+
+Recommended walkthrough:
+
+- upload a document
+- ask a grounded question
+- inspect retrieved chunks and similarity scores
+- open the saved trace
+- view the final prompt and generated answer
+- run an evaluation baseline
+- export a Markdown or PDF report
+
+Its intention is to help developers answer four questions about RAG systems:
+
+- What information did the system retrieve?
+- What context and prompt were sent to the language model?
+- What answer did the model generate, and which sources support it?
+- How well did the system perform across multiple test questions?
 
 ## What RAGLens does
 

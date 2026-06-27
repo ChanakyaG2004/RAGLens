@@ -293,9 +293,16 @@ OpenAI usage may incur charges.
 | `GET` | `/api/evaluations/runs/{run_id}/report.md` | Download a Markdown evaluation report. |
 | `GET` | `/api/evaluations/runs/{run_id}/report.pdf` | Download a PDF evaluation report. |
 
-## CLI evaluation baseline
+## CLI evaluation benchmark
 
-The included CLI runner uses `evaluation/raglens_eval.json` and calls the running question endpoint.
+The included CLI runner uses `evaluation/raglens_eval_25.json` and creates two persisted evaluation runs against the running API: one at `top_k=3` and one at `top_k=5`. The 25-question dataset includes labeled questions, expected source documents, expected answers, and expected source sections across the sample corpus.
+
+Before running the benchmark, start the backend and upload the sample documents:
+
+```bash
+curl -F "file=@samples/raglens-demo.md" http://localhost:8000/api/documents/upload
+curl -F "file=@samples/raglens-evaluation-guide.md" http://localhost:8000/api/documents/upload
+```
 
 ```bash
 cd backend
@@ -306,20 +313,29 @@ python scripts/run_evaluation.py
 It prints JSON with:
 
 - case count
-- Retrieval Hit Rate@k
-- inline-citation coverage
+- Retrieval Hit Rate@3
+- Retrieval Hit Rate@5
+- citation coverage
 - average end-to-end latency
-- per-question results
+- average faithfulness heuristic
+- average context relevance heuristic
+- average hallucination-risk heuristic
+- persisted Markdown report URLs
 
-Example measured local baseline:
+Example measured local benchmark:
 
 ```text
-Retrieval Hit Rate@k: 100% (3/3 cases)
-Inline citation coverage: 66.7% (2/3 answers)
-Average end-to-end latency: 1.97 seconds
+Evaluation cases: 25
+Retrieval Hit Rate@3: 80%
+Retrieval Hit Rate@5: 92%
+Citation coverage: 56%
+Average end-to-end latency: 4.845 seconds
+Faithfulness heuristic: 84.8%
+Context relevance heuristic: 67.5%
+Hallucination-risk heuristic: 15.2%
 ```
 
-These values are specific to the supplied demo corpus, hardware, local model, and three-question baseline. Do not represent them as general production benchmarks.
+These values are specific to the supplied demo corpus, local hardware, indexed chunk configuration, and local Ollama model. Do not represent them as general production benchmarks.
 
 ## Evaluation score interpretation
 

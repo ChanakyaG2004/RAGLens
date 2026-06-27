@@ -1,0 +1,152 @@
+[
+  {
+    "question": "What is the main goal of RAGLens?",
+    "expected_source_document": "raglens-demo.md",
+    "expected_answer": "RAGLens helps developers understand and debug retrieval-augmented generation systems.",
+    "expected_source_chunk_or_section": "RAGLens Demo Document"
+  },
+  {
+    "question": "What types of documents can users upload in the demo document?",
+    "expected_source_document": "raglens-demo.md",
+    "expected_answer": "Users can upload text or Markdown documents.",
+    "expected_source_chunk_or_section": "Upload workflow"
+  },
+  {
+    "question": "How does RAGLens process uploaded documents before retrieval?",
+    "expected_source_document": "raglens-demo.md",
+    "expected_answer": "It splits uploaded documents into overlapping chunks, creates embeddings, and stores the vectors.",
+    "expected_source_chunk_or_section": "Document processing"
+  },
+  {
+    "question": "Where does RAGLens store document vectors?",
+    "expected_source_document": "raglens-demo.md",
+    "expected_answer": "RAGLens stores document vectors in PostgreSQL with pgvector.",
+    "expected_source_chunk_or_section": "Vector storage"
+  },
+  {
+    "question": "What happens when a user asks a question?",
+    "expected_source_document": "raglens-demo.md",
+    "expected_answer": "The application retrieves the most relevant chunks and builds a grounded prompt for a language model.",
+    "expected_source_chunk_or_section": "Question answering workflow"
+  },
+  {
+    "question": "What does every question create in RAGLens?",
+    "expected_source_document": "raglens-demo.md",
+    "expected_answer": "Every question creates a persisted trace.",
+    "expected_source_chunk_or_section": "Trace creation"
+  },
+  {
+    "question": "What information does a persisted trace capture?",
+    "expected_source_document": "raglens-demo.md",
+    "expected_answer": "A trace captures the user question, retrieved chunks, similarity scores, final prompt, generated answer, model, and timestamp.",
+    "expected_source_chunk_or_section": "Trace fields"
+  },
+  {
+    "question": "What interface makes the RAG pipeline inspectable?",
+    "expected_source_document": "raglens-demo.md",
+    "expected_answer": "The React Trace Viewer makes the RAG pipeline inspectable.",
+    "expected_source_chunk_or_section": "Trace viewer"
+  },
+  {
+    "question": "What are embeddings used for in RAGLens?",
+    "expected_source_document": "raglens-demo.md",
+    "expected_answer": "Embeddings are created from document chunks so the application can retrieve relevant chunks for questions.",
+    "expected_source_chunk_or_section": "Embeddings and retrieval"
+  },
+  {
+    "question": "Why does RAGLens build a grounded prompt?",
+    "expected_source_document": "raglens-demo.md",
+    "expected_answer": "RAGLens builds a grounded prompt so the language model answers using retrieved context.",
+    "expected_source_chunk_or_section": "Grounded prompt"
+  },
+  {
+    "question": "What is RAGLens designed to make easier?",
+    "expected_source_document": "raglens-evaluation-guide.md",
+    "expected_answer": "RAGLens is designed to make retrieval-augmented generation systems easier to inspect, measure, and improve.",
+    "expected_source_chunk_or_section": "Evaluation guide introduction"
+  },
+  {
+    "question": "What does RAGLens record besides the final answer?",
+    "expected_source_document": "raglens-evaluation-guide.md",
+    "expected_answer": "It records retrieval evidence, the prompt sent to the model, the generated response, and evaluation scores for each run.",
+    "expected_source_chunk_or_section": "Recorded evaluation artifacts"
+  },
+  {
+    "question": "How does the observability layer help developers debug wrong answers?",
+    "expected_source_document": "raglens-evaluation-guide.md",
+    "expected_answer": "It shows whether the retriever selected weak chunks, whether the prompt missed important context, or whether the model ignored retrieved evidence.",
+    "expected_source_chunk_or_section": "Observability layer"
+  },
+  {
+    "question": "What can a trace reveal when a RAG answer fails?",
+    "expected_source_document": "raglens-evaluation-guide.md",
+    "expected_answer": "A trace can reveal weak retrieved chunks, missing prompt context, or model behavior that ignored retrieved evidence.",
+    "expected_source_chunk_or_section": "Failure debugging"
+  },
+  {
+    "question": "What four MVP scores does RAGLens use to evaluate answers?",
+    "expected_source_document": "raglens-evaluation-guide.md",
+    "expected_answer": "RAGLens uses faithfulness, context relevance, citation support, and hallucination risk.",
+    "expected_source_chunk_or_section": "Evaluation scores"
+  },
+  {
+    "question": "What does the faithfulness score estimate?",
+    "expected_source_document": "raglens-evaluation-guide.md",
+    "expected_answer": "Faithfulness estimates whether the answer is supported by the retrieved context.",
+    "expected_source_chunk_or_section": "Faithfulness"
+  },
+  {
+    "question": "What does context relevance estimate?",
+    "expected_source_document": "raglens-evaluation-guide.md",
+    "expected_answer": "Context relevance estimates whether the retrieved chunks match the user question.",
+    "expected_source_chunk_or_section": "Context relevance"
+  },
+  {
+    "question": "What does citation support check?",
+    "expected_source_document": "raglens-evaluation-guide.md",
+    "expected_answer": "Citation support checks whether the answer includes citations pointing back to retrieved sources.",
+    "expected_source_chunk_or_section": "Citation support"
+  },
+  {
+    "question": "When is hallucination risk higher?",
+    "expected_source_document": "raglens-evaluation-guide.md",
+    "expected_answer": "Hallucination risk is higher when the answer appears less grounded in the retrieved text.",
+    "expected_source_chunk_or_section": "Hallucination risk"
+  },
+  {
+    "question": "What do evaluation runs let a developer test?",
+    "expected_source_document": "raglens-evaluation-guide.md",
+    "expected_answer": "Evaluation runs let a developer test multiple questions against the same document collection.",
+    "expected_source_chunk_or_section": "Evaluation runs"
+  },
+  {
+    "question": "What does each evaluation run store?",
+    "expected_source_document": "raglens-evaluation-guide.md",
+    "expected_answer": "Each run stores per-question results, average scores, retrieval hit rate, latency, and failed examples.",
+    "expected_source_chunk_or_section": "Stored run results"
+  },
+  {
+    "question": "What changes can developers compare with evaluation runs?",
+    "expected_source_document": "raglens-evaluation-guide.md",
+    "expected_answer": "Developers can compare changes such as different chunk sizes, different top-k retrieval values, or different generation models.",
+    "expected_source_chunk_or_section": "Comparison targets"
+  },
+  {
+    "question": "What is the main value of RAGLens according to the evaluation guide?",
+    "expected_source_document": "raglens-evaluation-guide.md",
+    "expected_answer": "RAGLens turns a RAG application from a black box into a debuggable system.",
+    "expected_source_chunk_or_section": "Main value"
+  },
+  {
+    "question": "What full path can a developer inspect instead of only seeing the final answer?",
+    "expected_source_document": "raglens-evaluation-guide.md",
+    "expected_answer": "A developer can inspect the path from uploaded document to chunking, embeddings, vector search, prompt construction, model response, citations, and saved trace.",
+    "expected_source_chunk_or_section": "Inspectable RAG path"
+  },
+  {
+    "question": "Why are failed examples useful in RAGLens evaluation runs?",
+    "expected_source_document": "raglens-evaluation-guide.md",
+    "expected_answer": "Failed examples make it easier to identify where retrieval or generation changes caused problems.",
+    "expected_source_chunk_or_section": "Failed examples"
+  }
+]
